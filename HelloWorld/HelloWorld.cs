@@ -6,11 +6,8 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            string answer;
-
-            Console.Write("What is your favourite fruit? ");
-            answer = Console.ReadLine();
-            Console.WriteLine("Your favourite fruit is " + answer);
+            Console.Write("The first command line argument was: ");
+            Console.WriteLine(args[0]);
         }
     }
 }
