@@ -6,22 +6,25 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            int num1, num2;
-            Console.Write("Enter first number: ");
-            num1 = Convert.ToInt16(Console.ReadLine());
-            Console.Write("Enter second number: ");
-            num2 = Convert.ToInt16(Console.ReadLine());
-            if (num1 > num2)
+            int choice = 0;
+            Console.WriteLine("Choose:\n1) Water\n2) Juice\n3) Lemonade\n4) Quit");
+            choice = Convert.ToInt16(Console.ReadLine());
+            switch (choice)
             {
-                Console.WriteLine("First number is bigger.");
-            }
-            else if (num2 > num1)
-            {
-                Console.WriteLine("Second number is bigger.");
-            }
-            else
-            {
-                Console.WriteLine("Numbers are equal.");
+                case 1:
+                    Console.WriteLine("You chose Water.");
+                    break;
+                case 2:
+                    Console.WriteLine("You chose Juice.");
+                    break;
+                case 3:
+                    Console.WriteLine("You chose Lemonade.");
+                    break;
+                case 4:
+                    Console.WriteLine("Quit!");
+                    break;
+                default:
+                    break;
             }
         }
     }
