@@ -6,8 +6,13 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            Console.Write("The first command line argument was: ");
-            Console.WriteLine(args[0]);
+            int age;
+            Console.WriteLine("Syötä ikäsi, ole hyvä:");
+            age = Convert.ToInt16(Console.ReadLine());
+            if (age >= 18)
+            {
+                Console.WriteLine("Voit äänestää!");
+            }
         }
     }
 }
