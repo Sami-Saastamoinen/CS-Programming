@@ -7,24 +7,16 @@ namespace FileMgmt
     {
         static void Main(string[] args)
         {
-            string fileName, content;
-            if (args.Length == 0)
+            //string fileName, content;
+
+            Console.Write("Tiedostonimi: ");
+            string fileName = Console.ReadLine();
+            Console.WriteLine("Sisalto tiedostolle {0}:", fileName);
+            string content = Console.ReadLine();
+            using (StreamWriter sw = new StreamWriter(fileName))
             {
-                Console.WriteLine("No file name given!");
-                return;
-            }
-            else
-            {
-                fileName = args[0];
-            }
-            if (File.Exists(fileName))
-            {
-                content = File.ReadAllText(fileName);
-                Console.WriteLine(content);
-            }
-            else
-            {
-                Console.WriteLine("File not found!");
+                sw.WriteLine(content);
+                sw.Close();
             }
         }
     }
