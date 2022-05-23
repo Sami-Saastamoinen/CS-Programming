@@ -6,23 +6,15 @@ namespace Lists
     {
         static void Main(string[] args)
         {
-            int input = 0;
-            List<int> nums = new List<int>();
+            List<string> names = new List<string> { "Torvalds", "Musk", "Gates", "Buffet", "Dorsey" };
 
-            while (input >= 0)
-            {
-                Console.Write("Enter a number (negative to stop): ");
-                input = Convert.ToInt32(Console.ReadLine());
-                if (input >= 0)
-                {
-                    nums.Add(input);
-                }
-            }
+            names[0] = "Jobs";
+            names[2] = "McAfee";
+            names[4] = "Wozniak";
 
-            Console.Write("Numbers that you entered: ");
-            foreach (int num in nums)
+            foreach (string name in names)
             {
-                Console.Write(num + " ");
+                Console.WriteLine(name);
             }
         }
     }
