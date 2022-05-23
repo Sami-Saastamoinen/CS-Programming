@@ -6,16 +6,12 @@ namespace Loops
     {
         static void Main(string[] args)
         {
-            int sum = 0;
-            int input = 0;
+            char[] characters = { 'L', 'e', 'a', 'r', 'n', ' ', 'C', '#', '!' };
 
-            while (sum < 200)
+            foreach (char character in characters)
             {
-                Console.Write("Sum is now {0}. Input: ", sum);
-                input = Convert.ToInt32(Console.ReadLine());
-                sum += input;
+                Console.Write(character);
             }
-            Console.WriteLine("Reached 200. Sum was {0}.", sum);
         }
     }
 }
