@@ -9,6 +9,9 @@ namespace MovieWatchlog
         {
             List<Leffa> leffat = new List<Leffa>() { };
             int choice = 0;
+            string name = "";
+            int duration = 0;
+            int year = 0;
 
             do
             {
@@ -19,13 +22,35 @@ namespace MovieWatchlog
                 switch (choice)
                 {
                     case 1:
-                        Console.WriteLine("Lisää Leffa");
+                        Console.WriteLine("Lisää Leffa:");
+                        Console.Write("Nimi:");
+                        name = Console.ReadLine();
+                        Console.Write("Kesto (min):");
+                        duration = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("Vuosi:");
+                        year = Convert.ToInt32(Console.ReadLine());
+                        leffat.Add(new Leffa(name, duration, year));
                         break;
                     case 2:
-                        Console.WriteLine("Poista Leffa");
+                        Console.WriteLine("Poista Leffa:");
+                        int idx = 1;
+                        foreach (Leffa leffa in leffat)
+                        {
+                            Console.WriteLine("{0}) {1} ({2}), {3} minuuttia.  ", idx, leffa.Nimi, leffa.Vuosi, leffa.Kesto);
+                            idx++;
+                        }
+                        Console.Write("Syöte: ");
+                        idx = Convert.ToInt32(Console.ReadLine());
+                        leffat.RemoveAt(idx - 1);
                         break;
                     case 3:
-                        Console.WriteLine("Näytä Raportti");
+                        int total = 0;
+                        foreach (Leffa leffa in leffat)
+                        {
+                            Console.WriteLine("{0} ({1}), {2} minuuttia.  ", leffa.Nimi, leffa.Vuosi, leffa.Kesto);
+                            total += leffa.Kesto;
+                        }
+                        Console.WriteLine("\n\rLeffoja katsottu yhteensä {0}, yhteiskesto {1} minuuttia.", leffat.Count, total);
                         break;
                     case 4:
                         Console.WriteLine("Lataa Tietokanta");
