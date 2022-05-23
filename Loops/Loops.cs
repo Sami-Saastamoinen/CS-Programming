@@ -6,11 +6,29 @@ namespace Loops
     {
         static void Main(string[] args)
         {
-            char[] characters = { 'L', 'e', 'a', 'r', 'n', ' ', 'C', '#', '!' };
-
-            foreach (char character in characters)
+            int[] nums = new int[args.Length];
+            int idx = 0;
+            int temp = 0;
+            foreach (string arg in args)
             {
-                Console.Write(character);
+                nums[idx] = Convert.ToInt32(arg);
+                idx++;
+            }
+            for (int write = 0; write < nums.Length; write++)
+            {
+                for (int sort = 0; sort < nums.Length - 1; sort++)
+                {
+                    if (nums[sort] > nums[sort + 1])
+                    {
+                        temp = nums[sort + 1];
+                        nums[sort + 1] = nums[sort];
+                        nums[sort] = temp;
+                    }
+                }
+            }
+            foreach (int num in nums)
+            {
+                Console.Write(num + " ");
             }
         }
     }
