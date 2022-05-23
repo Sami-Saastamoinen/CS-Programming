@@ -7,16 +7,15 @@ namespace FileMgmt
     {
         static void Main(string[] args)
         {
-            //string fileName, content;
+            string path = ".";
+            string[] dirList = Directory.GetFiles(path);
 
-            Console.Write("File name: ");
-            string fileName = Console.ReadLine();
-            Console.WriteLine("Enter the content {0}:", fileName);
-            string content = Console.ReadLine();
-            using (StreamWriter sw = new StreamWriter(fileName, true))
+            if (dirList.Length > 0)
             {
-                sw.WriteLine(content);
-                sw.Close();
+                foreach (string fileName in dirList)
+                {
+                    Console.WriteLine(fileName);
+                }
             }
         }
     }
