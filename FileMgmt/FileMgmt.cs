@@ -9,11 +9,11 @@ namespace FileMgmt
         {
             //string fileName, content;
 
-            Console.Write("Tiedostonimi: ");
+            Console.Write("File name: ");
             string fileName = Console.ReadLine();
-            Console.WriteLine("Sisalto tiedostolle {0}:", fileName);
+            Console.WriteLine("Enter the content {0}:", fileName);
             string content = Console.ReadLine();
-            using (StreamWriter sw = new StreamWriter(fileName))
+            using (StreamWriter sw = new StreamWriter(fileName, true))
             {
                 sw.WriteLine(content);
                 sw.Close();
