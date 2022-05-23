@@ -16,7 +16,7 @@ namespace FileMgmt
                 {
                     File.Delete(fileName);
                 }
-                Console.WriteLine(dirList.Length + " tiedosto(a) poistettu.");
+                Console.WriteLine(dirList.Length + " file(s) deleted.");
             }
         }
     }
