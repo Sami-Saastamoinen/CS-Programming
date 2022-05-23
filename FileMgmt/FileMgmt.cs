@@ -8,14 +8,15 @@ namespace FileMgmt
         static void Main(string[] args)
         {
             string path = ".";
-            string[] dirList = Directory.GetFiles(path);
+            string[] dirList = Directory.GetFiles(path, "*.dat");
 
             if (dirList.Length > 0)
             {
                 foreach (string fileName in dirList)
                 {
-                    Console.WriteLine(fileName);
+                    File.Delete(fileName);
                 }
+                Console.WriteLine(dirList.Length + " tiedosto(a) poistettu.");
             }
         }
     }
