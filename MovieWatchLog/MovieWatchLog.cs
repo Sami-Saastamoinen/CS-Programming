@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace MovieWatchlog
 {
@@ -53,10 +55,28 @@ namespace MovieWatchlog
                         Console.WriteLine("\n\rLeffoja katsottu yhteensä {0}, yhteiskesto {1} minuuttia.", leffat.Count, total);
                         break;
                     case 4:
-                        Console.WriteLine("Lataa Tietokanta");
+                        if (File.Exists("tietokanta.xml"))
+                        {
+                            XmlSerializer deserializer = new XmlSerializer(typeof(List<Leffa>));
+                            using (StreamReader reader = new StreamReader("tietokanta.xml"))
+                            {
+                                leffat = (List<Leffa>)deserializer.Deserialize(reader);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tietokantaa ei saatavilla.");
+                        }
+                        Console.WriteLine("Tietokanta ladattu.");
                         break;
                     case 5:
-                        Console.WriteLine("Tallenna Tietokanta");
+                        XmlSerializer serializer = new XmlSerializer(typeof(List<Leffa>));
+                        using (StreamWriter sw = new StreamWriter("tietokanta.xml"))
+                        {
+                            serializer.Serialize(sw, leffat);
+                            sw.Close();
+                        }
+                        Console.WriteLine("Tietokanta tallennettu.");
                         break;
                     case 6:
                         break;
@@ -71,12 +91,17 @@ namespace MovieWatchlog
     }
 
     [Serializable]
-    class Leffa
+    public class Leffa
     {
         public string Nimi;
         public int Kesto;
         public int Vuosi;
-
+        public Leffa()
+        {
+            this.Nimi = "";
+            this.Kesto = 0;
+            this.Vuosi = 0;
+        }
         public Leffa(string nimi, int kesto, int vuosi)
         {
             this.Nimi = nimi;
