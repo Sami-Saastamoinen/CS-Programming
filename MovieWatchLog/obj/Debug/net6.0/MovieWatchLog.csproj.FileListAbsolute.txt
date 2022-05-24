@@ -1,0 +1,15 @@
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\bin\Debug\net6.0\MovieWatchLog.exe
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\bin\Debug\net6.0\MovieWatchLog.deps.json
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\bin\Debug\net6.0\MovieWatchLog.runtimeconfig.json
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\bin\Debug\net6.0\MovieWatchLog.dll
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\bin\Debug\net6.0\MovieWatchLog.pdb
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\obj\Debug\net6.0\MovieWatchLog.csproj.AssemblyReference.cache
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\obj\Debug\net6.0\MovieWatchLog.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\obj\Debug\net6.0\MovieWatchLog.AssemblyInfoInputs.cache
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\obj\Debug\net6.0\MovieWatchLog.AssemblyInfo.cs
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\obj\Debug\net6.0\MovieWatchLog.csproj.CoreCompileInputs.cache
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\obj\Debug\net6.0\MovieWatchLog.dll
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\obj\Debug\net6.0\refint\MovieWatchLog.dll
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\obj\Debug\net6.0\MovieWatchLog.pdb
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\obj\Debug\net6.0\MovieWatchLog.genruntimeconfig.cache
+C:\Users\sampp\My Drive\TAMK\Metropolia\C#-ohjelmointi\CS-Programming\MovieWatchLog\obj\Debug\net6.0\ref\MovieWatchLog.dll

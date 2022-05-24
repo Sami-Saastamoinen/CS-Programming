@@ -11,7 +11,7 @@ namespace MovieWatchlog
         {
             List<Movie> movies = new List<Movie>() { };
             int choice = 0;
-            string name = "";
+            string? name = "";
             int duration = 0;
             int year = 0;
 
@@ -31,12 +31,12 @@ namespace MovieWatchlog
                         duration = Convert.ToInt32(Console.ReadLine());
                         Console.Write("Year:");
                         year = Convert.ToInt32(Console.ReadLine());
-                        movies.Add(new Movie(name, duration, year));
+                        movies!.Add(new Movie(name!, duration, year));
                         break;
                     case 2:
                         Console.WriteLine("Delete Movie:");
                         int idx = 1;
-                        foreach (Movie movie in movies)
+                        foreach (Movie movie in movies!)
                         {
                             Console.WriteLine("{0}) {1} ({2}), {3} minutes.  ", idx, movie.Name, movie.Year, movie.Duration);
                             idx++;
@@ -47,7 +47,7 @@ namespace MovieWatchlog
                         break;
                     case 3:
                         int total = 0;
-                        foreach (Movie movie in movies)
+                        foreach (Movie movie in movies!)
                         {
                             Console.WriteLine("{0} ({1}), {2} minutes.  ", movie.Name, movie.Year, movie.Duration);
                             total += movie.Duration;
@@ -62,12 +62,12 @@ namespace MovieWatchlog
                             {
                                 movies = (List<Movie>)deserializer.Deserialize(reader);
                             }
+                            Console.WriteLine("Database loaded.");
                         }
                         else
                         {
                             Console.WriteLine("Database not available.");
                         }
-                        Console.WriteLine("Database loaded.");
                         break;
                     case 5:
                         XmlSerializer serializer = new XmlSerializer(typeof(List<Movie>));
