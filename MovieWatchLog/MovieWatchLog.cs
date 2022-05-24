@@ -9,7 +9,7 @@ namespace MovieWatchlog
     {
         static void Main(string[] args)
         {
-            List<Leffa> leffat = new List<Leffa>() { };
+            List<Movie> movies = new List<Movie>() { };
             int choice = 0;
             string name = "";
             int duration = 0;
@@ -17,72 +17,72 @@ namespace MovieWatchlog
 
             do
             {
-                Console.Write("\n\r\n\rLeffojen Katseluloki\n====================\n1) Lisää Leffa\n2) Poista Leffa\n3) Näytä Raportti\n4) Lataa Tietokanta\n5) Tallenna Tietokanta\n6) Lopeta\nSyöte: ");
+                Console.Write("\n\r\n\rMovie Watch Log\n====================\n1) Add Movie\n2) Delete Movie\n3) Show Report\n4) Load Database\n5) Save Database\n6) Quit\nSelection: ");
                 choice = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine();
                 Console.Write("\r");
                 switch (choice)
                 {
                     case 1:
-                        Console.WriteLine("Lisää Leffa:");
-                        Console.Write("Nimi:");
+                        Console.WriteLine("Add Movie:");
+                        Console.Write("Name:");
                         name = Console.ReadLine();
-                        Console.Write("Kesto (min):");
+                        Console.Write("Duration (min):");
                         duration = Convert.ToInt32(Console.ReadLine());
-                        Console.Write("Vuosi:");
+                        Console.Write("Year:");
                         year = Convert.ToInt32(Console.ReadLine());
-                        leffat.Add(new Leffa(name, duration, year));
+                        movies.Add(new Movie(name, duration, year));
                         break;
                     case 2:
-                        Console.WriteLine("Poista Leffa:");
+                        Console.WriteLine("Delete Movie:");
                         int idx = 1;
-                        foreach (Leffa leffa in leffat)
+                        foreach (Movie movie in movies)
                         {
-                            Console.WriteLine("{0}) {1} ({2}), {3} minuuttia.  ", idx, leffa.Nimi, leffa.Vuosi, leffa.Kesto);
+                            Console.WriteLine("{0}) {1} ({2}), {3} minutes.  ", idx, movie.Name, movie.Year, movie.Duration);
                             idx++;
                         }
-                        Console.Write("Syöte: ");
+                        Console.Write("Selection: ");
                         idx = Convert.ToInt32(Console.ReadLine());
-                        leffat.RemoveAt(idx - 1);
+                        movies.RemoveAt(idx - 1);
                         break;
                     case 3:
                         int total = 0;
-                        foreach (Leffa leffa in leffat)
+                        foreach (Movie movie in movies)
                         {
-                            Console.WriteLine("{0} ({1}), {2} minuuttia.  ", leffa.Nimi, leffa.Vuosi, leffa.Kesto);
-                            total += leffa.Kesto;
+                            Console.WriteLine("{0} ({1}), {2} minutes.  ", movie.Name, movie.Year, movie.Duration);
+                            total += movie.Duration;
                         }
-                        Console.WriteLine("\n\rLeffoja katsottu yhteensä {0}, yhteiskesto {1} minuuttia.", leffat.Count, total);
+                        Console.WriteLine("\n\rIn total you have watched {0} movies for {1} minutes.", movies.Count, total);
                         break;
                     case 4:
-                        if (File.Exists("tietokanta.xml"))
+                        if (File.Exists("database.xml"))
                         {
-                            XmlSerializer deserializer = new XmlSerializer(typeof(List<Leffa>));
-                            using (StreamReader reader = new StreamReader("tietokanta.xml"))
+                            XmlSerializer deserializer = new XmlSerializer(typeof(List<Movie>));
+                            using (StreamReader reader = new StreamReader("database.xml"))
                             {
-                                leffat = (List<Leffa>)deserializer.Deserialize(reader);
+                                movies = (List<Movie>)deserializer.Deserialize(reader);
                             }
                         }
                         else
                         {
-                            Console.WriteLine("Tietokantaa ei saatavilla.");
+                            Console.WriteLine("Database not available.");
                         }
-                        Console.WriteLine("Tietokanta ladattu.");
+                        Console.WriteLine("Database loaded.");
                         break;
                     case 5:
-                        XmlSerializer serializer = new XmlSerializer(typeof(List<Leffa>));
-                        using (StreamWriter sw = new StreamWriter("tietokanta.xml"))
+                        XmlSerializer serializer = new XmlSerializer(typeof(List<Movie>));
+                        using (StreamWriter sw = new StreamWriter("database.xml"))
                         {
-                            serializer.Serialize(sw, leffat);
+                            serializer.Serialize(sw, movies);
                             sw.Close();
                         }
-                        Console.WriteLine("Tietokanta tallennettu.");
+                        Console.WriteLine("Database saved.");
                         break;
                     case 6:
                         break;
 
                     default:
-                        Console.WriteLine("Valinta ei kelpaa!");
+                        Console.WriteLine("Invalid selection!");
                         break;
                 }
             } while (choice != 6);
@@ -91,22 +91,22 @@ namespace MovieWatchlog
     }
 
     [Serializable]
-    public class Leffa
+    public class Movie
     {
-        public string Nimi;
-        public int Kesto;
-        public int Vuosi;
-        public Leffa()
+        public string Name;
+        public int Duration;
+        public int Year;
+        public Movie()
         {
-            this.Nimi = "";
-            this.Kesto = 0;
-            this.Vuosi = 0;
+            this.Name = "";
+            this.Duration = 0;
+            this.Year = 0;
         }
-        public Leffa(string nimi, int kesto, int vuosi)
+        public Movie(string name, int duration, int year)
         {
-            this.Nimi = nimi;
-            this.Kesto = kesto;
-            this.Vuosi = vuosi;
+            this.Name = name;
+            this.Duration = duration;
+            this.Year = year;
         }
 
     }
